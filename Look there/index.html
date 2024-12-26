@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priority To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="todo-container">
+    <h1>My To-Do List</h1>
+    
+    <input type="text" id="taskInput" placeholder="Add a new task..." />
+    <button id="addTaskButton">Add Task</button>
+
+    <!-- Modal for priority selection -->
+    <div id="priorityModal" class="priority-modal">
+      <div class="modal-content">
+        <h2>Select Priority</h2>
+        <label>
+          <input type="radio" name="priority" value="very important" id="veryImportantRadio">
+          Very Important
+        </label>
+        <label>
+          <input type="radio" name="priority" value="less important" id="lessImportantRadio">
+          Less Important
+        </label>
+        <button id="confirmPriorityButton">Confirm</button>
+      </div>
+    </div>
+
+    <div id="veryImportantTasks">
+      <h2>Very Important</h2>
+      <ul id="veryImportantList">
+        <!-- Tasks will be dynamically added here -->
+      </ul>
+    </div>
+
+    <div id="lessImportantTasks">
+      <h2>Less Important</h2>
+      <ul id="lessImportantList">
+        <!-- Tasks will be dynamically added here -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", serif;
+  background-image: url(https://images.unsplash.com/photo-1508615039623-a25605d2b022?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D);
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden; 
+
+
+}
+
+.container {
+  width: 80%;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(152, 142, 142);
+  margin-top: 200px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.inputcontainer {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+#taskInput {
+  width: 200px;
+  height: 80px;
+  border: none;
+  border-radius: 10px;
+}
+
+#addTaskButton {
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: rgb(12, 52, 38);
+  color: white;
+  border: none;
+}
+
+.container-classification {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+#veryImportantTasks,
+#lessImportantTasks {
+  margin-top: 30px;
+}
+
+#veryImportantTasks {
+  background-color: #ffe6e6;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#lessImportantTasks {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Priority */
+.priority-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 10px 0;
+}
+
+.modal-content button {
+  margin-top: 20px;
+}
