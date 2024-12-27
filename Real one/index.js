@@ -7,6 +7,58 @@ const confirmPriorityButton = document.getElementById('confirmPriorityButton');
 const veryImportantList = document.getElementById('veryImportantList');
 const lessImportantList = document.getElementById('lessImportantList');
 
+
+const ligthmode = localStorage.getItem('ligthmode')
+const themeswitch = document.getElementById('theme-switch')
+
+const enableligthmode = () => {
+  document.body.classList.add('ligthmode', 'active')
+  localStorage.setItem('ligthmode', "dark")
+}
+
+// const toggleMode = () => {
+//   console.log("helloo");
+  
+//   const isActive = localStorage.getItem('mode');
+//   console.log(isActive);
+  
+//   if (isActive != "light" ){
+//     console.log("dark");
+    
+//     document.body.style.background = "yellow"
+//     localStorage.setItem('mode', "light")
+//   } else {
+//     console.log("light");
+    
+//     document.body.style.background = "black";  localStorage.setItem('mode', "dark")
+//   }
+// }
+
+const disableligthmode = () => {
+  document.body.classList.remove('ligthmode', null)
+  localStorage.setItem('ligthmode', "active")
+}
+
+// if(ligthmode === "active") enableligthmode()
+
+
+themeswitch.addEventListener("click", () => {
+  const ligthmode = localStorage.getItem('ligthmode')
+
+  if( ligthmode !== "active"){
+    console.log("!active");
+    
+    disableligthmode()
+
+  }else{
+    console.log("dark");
+
+    enableligthmode() 
+
+    
+  }
+})
+
 // Show option when clicked
 addTaskButton.addEventListener('click', showPriorityModal);
 taskInput.addEventListener('keypress', (e) => {

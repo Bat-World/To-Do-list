@@ -1,13 +1,70 @@
+
+:root {
+  --background-color: rgb(25, 21, 21);
+  --title-color: white;
+  --classbox-background: #ffffff;
+  --modelcontent-bck: rgb(255, 255, 255);
+  --li-bck: #fff;
+   --icon-color: #757575 ;
+   --themeswitch-back: rgb(53, 53, 53);
+   --input-back: white;
+
+}
+
+.ligthmode {
+  --background-color: white;
+  --title-color: black;
+  --classbox-background: rgb(53, 53, 53);
+  --modelcontent-bck: rgb(203, 203, 203);
+  --li-bck: #191717;
+  --themeswitch-back: rgb(177, 177, 177);
+  --icon-color: #6a6a6a ;
+  --input-back: rgb(53, 53, 53);
+}
+
+
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", serif;
- background-color: rgb(31, 25, 25);
+  background-color: white;
+ /* background-color: var(--background-color); */
   display: flex;
   justify-content: center;
   overflow-y: hidden; 
+}
 
+#theme-switch {
+width: 50px;
+height: 50px;
+padding: 0;
+border-radius: 50%;
+border: none;
+background-color: var(--themeswitch-back);
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+top: 20px;
+right: 20px;
+}
 
+#theme-switch svg {
+  fill: var(--icon-color);
+
+}
+#theme-switch svg:first-child{
+  display: none;
+}
+
+.lightmode #theme-switch svg:last-child{
+  display: none;
+}
+
+.lightmode #theme-switch svg:first-child{
+  display: block;
 }
 .title-container {
   width: 100%;
@@ -31,13 +88,13 @@ body {
 
 .title {
   text-align: center;
-  color: white;
- font-size: 30px;
+  color: var(--title-color);
+ font-size: 40px;
  font-weight: 600;
 }
 .title-icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .inputcontainer {
@@ -56,8 +113,11 @@ body {
   border: none;
   border-radius: 20px;
   position: absolute;
+  font-size: 14px;
   top: 0;
   left: 35%;
+  background-color: var(--input-back);
+  color: var(--background-color)
 }
 
 #taskInput:focus {
@@ -75,6 +135,8 @@ body {
   border-radius: 20px;
   background-color: rgb(12, 154, 102);
   color: white;
+  font-size: 14px;
+  font-weight: 700;
   border: none;
   transition: 0.3s;
 }
@@ -102,7 +164,7 @@ li {
   align-items: center;
   padding: 10px;
   margin: 5px 0;
-  background-color: #fff;
+  background-color: var(--li-bck);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -113,13 +175,13 @@ li.completed span {
 }
 
 #veryImportantTasks {
-  background-color: #ffe6e6;
+  background-color: var(--classbox-background);
   padding: 10px;
   border-radius: 5px;
 }
 
 #lessImportantTasks {
-  background-color: #f0f0f0;
+  background-color: var(--classbox-background);
   padding: 10px;
   border-radius: 5px;
 }
@@ -127,6 +189,7 @@ li.completed span {
 .class-title{
   font-size: 20px;
   font-weight: 600;
+  color: var(--background-color);
 }
 
 /* Priority */
@@ -143,7 +206,7 @@ li.completed span {
 }
 
 .modal-content {
-  background-color: rgb(255, 255, 255);
+  background-color:var(--modelcontent-bck);
   padding: 20px;
   border-radius: 8px;
   width: 500px;
@@ -170,7 +233,7 @@ width: 100px;
 height: 30px;
 border-radius: 30px;
 border: none;
-color: white;
+color: var(--title-color);
 background-color: rgb(12, 154, 102);
 transition: 0.3s;
 }
