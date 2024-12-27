@@ -22,7 +22,7 @@ function showPriorityModal() {
   currentTaskText = taskText;
   taskInput.value = '';
 
-  // Show the modal and reset radio buttons
+
   priorityModal.style.display = 'flex';
   veryImportantRadio.checked = false;
   lessImportantRadio.checked = false;
@@ -75,10 +75,52 @@ function addTaskToList(priority) {
   } else {
     lessImportantList.appendChild(li);
   }
+
 }
 
-// Delete task
+
+
+// Handle drag start (set the element being dragged)
+function handleDragStart(e) {
+e.dataTransfer.setData('text/plain', e.target.id);  // Set the dragged element's data
+e.target.classList.add('dragging');
+}
+
+// Handle drag end (remove the dragging class)
+function handleDragEnd(e) {
+e.target.classList.remove('dragging');
+}
+
+// Handle dragging over the drop target (allow the drop)
+function handleDragOver(e) {
+e.preventDefault();  // Necessary to allow drop
+e.target.classList.add('drag-over');
+}
+
+// Handle dragging leave from the drop target (reset style)
+function handleDragLeave(e) {
+e.target.classList.remove('drag-over');
+}
+
+// Handle the drop event (move the task to the new list)
+function handleDrop(e) {
+e.preventDefault();
+const draggingTask = document.querySelector('.dragging');
+const targetList = e.target.querySelector('ul');
+
+// Append the dragged item to the new list
+if (targetList) {
+  targetList.appendChild(draggingTask);
+}
+
+
+e.target.classList.remove('drag-over');
+}
+
+
 function deleteTask(e) {
   const task = e.target.parentElement;
   task.remove();
 }
+
+

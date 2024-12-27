@@ -2,30 +2,42 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", serif;
-  background-image: url(https://images.unsplash.com/photo-1508615039623-a25605d2b022?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D);
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat;
+ background-color: rgb(31, 25, 25);
   display: flex;
   justify-content: center;
   overflow-y: hidden; 
 
 
 }
+.title-container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
 .container {
   width: 80%;
-  height: 900px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(152, 142, 142);
+  background-color:transparent;
   margin-top: 200px;
 }
 
 .title {
   text-align: center;
   color: white;
+ font-size: 30px;
+ font-weight: 600;
+}
+.title-icon {
+  width: 30px;
+  height: 30px;
 }
 
 .inputcontainer {
@@ -34,23 +46,41 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
+  position: relative;
 }
 
 #taskInput {
-  width: 200px;
-  height: 80px;
+  width: 250px;
+  height: 38px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 35%;
+}
+
+#taskInput:focus {
+  border: none;
+  outline: none;  /* Remove the focus outline */
+  box-shadow: none; /* Remove any box-shadow (if applied by the browser) */
 }
 
 #addTaskButton {
+  position: absolute;
+  left: 55%;
+  top: 0;
   width: 120px;
-  height: 80px;
-  border-radius: 10px;
-  background-color: rgb(12, 52, 38);
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgb(12, 154, 102);
   color: white;
   border: none;
+  transition: 0.3s;
+}
+#addTaskButton:hover {
+width: 130px;
+  background-color: rgb(29, 179, 124);
 }
 
 .container-classification {
@@ -81,10 +111,6 @@ li.completed span {
   text-decoration: line-through;
   color: #888;
 }
-#veryImportantTasks,
-#lessImportantTasks {
-  margin-top: 30px;
-}
 
 #veryImportantTasks {
   background-color: #ffe6e6;
@@ -96,6 +122,11 @@ li.completed span {
   background-color: #f0f0f0;
   padding: 10px;
   border-radius: 5px;
+}
+
+.class-title{
+  font-size: 20px;
+  font-weight: 600;
 }
 
 /* Priority */
@@ -112,15 +143,16 @@ li.completed span {
 }
 
 .modal-content {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  width: 500px;
   text-align: center;
 }
 
-.modal-content h2 {
+.modal-content p {
   margin-bottom: 15px;
+  font-size: 40px;
 }
 
 .modal-content label {
@@ -130,4 +162,20 @@ li.completed span {
 
 .modal-content button {
   margin-top: 20px;
+}
+
+
+#confirmPriorityButton {
+width: 100px;
+height: 30px;
+border-radius: 30px;
+border: none;
+color: white;
+background-color: rgb(12, 154, 102);
+transition: 0.3s;
+}
+
+#confirmPriorityButton:hover {
+  transform: scale(1.1);
+  background-color: rgb(29, 179, 124);
 }
