@@ -12,7 +12,7 @@
 }
 
 .ligthmode {
-  --background-color: white;
+  --background-color: rgb(243, 243, 243);
   --title-color: black;
   --classbox-background: rgb(53, 53, 53);
   --modelcontent-bck: rgb(203, 203, 203);
@@ -30,10 +30,10 @@ body {
   padding: 0;
   font-family: "Poppins", serif;
   background-color: white;
- /* background-color: var(--background-color); */
+ background-color: var(--background-color);
   display: flex;
   justify-content: center;
-  overflow-y: hidden; 
+
 }
 
 #theme-switch {
@@ -59,13 +59,15 @@ right: 20px;
   display: none;
 }
 
-.lightmode #theme-switch svg:last-child{
+.ligthmode #theme-switch svg:last-child{
   display: none;
 }
 
-.lightmode #theme-switch svg:first-child{
+.ligthmode #theme-switch svg:first-child{
   display: block;
 }
+
+
 .title-container {
   width: 100%;
   height: 50px;
@@ -122,8 +124,8 @@ right: 20px;
 
 #taskInput:focus {
   border: none;
-  outline: none;  /* Remove the focus outline */
-  box-shadow: none; /* Remove any box-shadow (if applied by the browser) */
+  outline: none;  
+  box-shadow: none; 
 }
 
 #addTaskButton {
