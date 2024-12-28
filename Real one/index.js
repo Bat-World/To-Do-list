@@ -95,7 +95,7 @@ confirmPriorityButton.addEventListener('click', () => {
 
   addTaskToList(priority);
 
-  // Close the modal
+
   priorityModal.style.display = 'none';
 });
 
@@ -106,6 +106,7 @@ function addTaskToList(priority) {
   // Create the task list item (li)
   const li = document.createElement('li');
   li.classList.add('task');
+  li.draggable = true; // Make the task draggable
 
   // Create the task description span
   const taskSpan = document.createElement('span');
@@ -121,58 +122,52 @@ function addTaskToList(priority) {
   li.appendChild(taskSpan);
   li.appendChild(deleteButton);
 
+  // Add event listeners for drag-and-drop
+  li.addEventListener('dragstart', handleDragStart);
+  li.addEventListener('dragend', handleDragEnd);
+
   // Add the task to the appropriate list based on priority
   if (priority === 'very important') {
     veryImportantList.appendChild(li);
   } else {
     lessImportantList.appendChild(li);
   }
-
 }
 
+// Drag-and-Drop Functions
+let draggedTask = null;
 
-
-// Handle drag start (set the element being dragged)
 function handleDragStart(e) {
-e.dataTransfer.setData('text/plain', e.target.id);  // Set the dragged element's data
-e.target.classList.add('dragging');
+  draggedTask = e.target; // Store the dragged task
+  e.target.classList.add('dragging'); // Add a visual indicator
 }
 
-// Handle drag end (remove the dragging class)
 function handleDragEnd(e) {
-e.target.classList.remove('dragging');
+  e.target.classList.remove('dragging'); // Remove the visual indicator
+  draggedTask = null; // Clear the dragged task reference
 }
 
-// Handle dragging over the drop target (allow the drop)
-function handleDragOver(e) {
-e.preventDefault();  // Necessary to allow drop
-e.target.classList.add('drag-over');
+// Allow drop zones to accept dropped items
+function allowDrop(e) {
+  e.preventDefault(); // Prevent default behavior to allow drop
 }
 
-// Handle dragging leave from the drop target (reset style)
-function handleDragLeave(e) {
-e.target.classList.remove('drag-over');
-}
-
-// Handle the drop event (move the task to the new list)
 function handleDrop(e) {
-e.preventDefault();
-const draggingTask = document.querySelector('.dragging');
-const targetList = e.target.querySelector('ul');
-
-// Append the dragged item to the new list
-if (targetList) {
-  targetList.appendChild(draggingTask);
+  e.preventDefault(); // Prevent default behavior
+  if (draggedTask && e.target.tagName === 'UL') { 
+    e.target.appendChild(draggedTask); // Append the dragged task to the new list
+  }
 }
 
+// Attach drag-and-drop events to the lists
+veryImportantList.addEventListener('dragover', allowDrop);
+veryImportantList.addEventListener('drop', handleDrop);
 
-e.target.classList.remove('drag-over');
-}
+lessImportantList.addEventListener('dragover', allowDrop);
+lessImportantList.addEventListener('drop', handleDrop);
 
-
+// Delete task function
 function deleteTask(e) {
   const task = e.target.parentElement;
   task.remove();
 }
-
-
