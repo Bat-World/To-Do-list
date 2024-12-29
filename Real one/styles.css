@@ -182,6 +182,12 @@ li.completed span {
   border-radius: 5px;
 }
 
+#ImportantTasks {
+  background-color: var(--classbox-background);
+  padding: 10px;
+  border-radius: 5px;
+}
+
 #lessImportantTasks {
   background-color: var(--classbox-background);
   padding: 10px;
