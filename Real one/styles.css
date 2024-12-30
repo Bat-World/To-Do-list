@@ -8,18 +8,20 @@
    --icon-color: #757575 ;
    --themeswitch-back: rgb(53, 53, 53);
    --input-back: white;
+   --class-title: black;
 
 }
 
 .ligthmode {
   --background-color: rgb(243, 243, 243);
   --title-color: black;
-  --classbox-background: rgb(53, 53, 53);
+  --classbox-background: rgb(180, 180, 180);
   --modelcontent-bck: rgb(203, 203, 203);
-  --li-bck: #191717;
+  --li-bck: #c4c4c4;
   --themeswitch-back: rgb(177, 177, 177);
   --icon-color: #6a6a6a ;
-  --input-back: rgb(53, 53, 53);
+  --input-back: rgb(210, 210, 210);
+  --class-title: black;
 }
 
 
@@ -110,17 +112,24 @@ right: 20px;
 }
 
 #taskInput {
-  width: 250px;
-  height: 38px;
+  width: 300px;
+  height: 50px;
   border: none;
-  border-radius: 20px;
+  border-radius: 30px;
   position: absolute;
   font-size: 14px;
   top: 0;
   left: 35%;
   background-color: var(--input-back);
-  color: var(--background-color)
+  color: var(--background-color);
+  /* text-align: center; */
 }
+
+/* 
+#taskInput::placeholder {
+  text-align: center;
+} */
+
 
 #taskInput:focus {
   border: none;
@@ -130,11 +139,11 @@ right: 20px;
 
 #addTaskButton {
   position: absolute;
-  left: 55%;
+  left: 59%;
   top: 0;
   width: 120px;
-  height: 40px;
-  border-radius: 20px;
+  height: 52px;
+  border-radius: 30px;
   background-color: rgb(12, 154, 102);
   color: white;
   font-size: 14px;
@@ -197,7 +206,7 @@ li.completed span {
 .class-title{
   font-size: 20px;
   font-weight: 600;
-  color: var(--background-color);
+  color: var(--class-title);
 }
 
 /* Priority */
@@ -250,3 +259,20 @@ transition: 0.3s;
   transform: scale(1.1);
   background-color: rgb(29, 179, 124);
 }
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+button.complete, button.delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button.complete svg, button.delete svg {
+  width: 20px;
+  height: 20px;
+}
+

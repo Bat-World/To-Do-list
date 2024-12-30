@@ -37,11 +37,12 @@ const taskInput = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTaskButton");
 const priorityModal = document.getElementById("priorityModal");
 const veryImportantRadio = document.getElementById("veryImportantRadio");
+const ImportantRadio = document.getElementById("ImportantRadio");
 const lessImportantRadio = document.getElementById("lessImportantRadio");
 const confirmPriorityButton = document.getElementById("confirmPriorityButton");
 const veryImportantList = document.getElementById("veryImportantList");
 const importantList = document.getElementById("ImportantList");
-const lessImportantList = document.getElementById("lessImportantTasks");
+const lessImportantList = document.getElementById("lessImportantList");
 
 let currentTaskText = "";
 
@@ -60,7 +61,7 @@ confirmPriorityButton.addEventListener("click", () => {
 
   if (veryImportantRadio.checked) {
     priority = "very important";
-  } else if (lessImportantRadio.checked) {
+  } else if (ImportantRadio.checked) {
     priority = "important";
   } else if (lessImportantRadio.checked) {
     priority = "less important";
@@ -83,6 +84,9 @@ function addTaskToList(priority) {
   taskSpan.textContent = currentTaskText;
 
   const deleteButton = document.createElement("button");
+  let completeButton = document.createElement("svg"  ) 
+
+  
   deleteButton.textContent = "X";
   deleteButton.classList.add("delete");
   deleteButton.addEventListener("click", () => li.remove());
